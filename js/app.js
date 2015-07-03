@@ -37,12 +37,46 @@ var app = angular.module("compwnentApp", ['firebase', 'ngRoute', 'filters']);
 		$scope.compPrice = "";
     $scope.userName = "";
     $scope.passWord = "";
+    var theIndex = 0;
 
     $scope.deleteCompwnent = function(e) {
-      var item = $scope.compwnents[this.comp];
-      $scope.compwnents.$remove(item).then(function(ref) {
-        ref.key() === item.$id;
-      });
+      var deleteConfirm = confirm("Are you sure you want to delete the Compwnent?");
+      if(deleteConfirm == true) {
+        var item = $scope.compwnents.indexOf(this.comp);
+        $scope.compwnents.$remove(item).then(function(ref) {
+          ref.key() === item.$id;
+        });
+      } else {
+        return;
+      }
+
+    }
+
+
+    $scope.submitUpVote = function(e){
+      var theIndex = $scope.compwnents.indexOf(this.comp);
+      var item = $scope.compwnents;
+      $scope.compwnents[theIndex].upVotes += 1;
+      item.$save(theIndex).then(function(ref){
+        ref.key() === item[theIndex].$id;
+      })
+    }
+
+    $scope.editThis = function(){
+      theIndex = $scope.compwnents.indexOf(this.comp);
+      var myCompwnents = $scope.compwnents[theIndex];
+      $scope.editCompwnents = myCompwnents;
+    }
+
+    $scope.saveEdit = function(){
+      $scope.compwnents[theIndex] = $scope.editCompwnents;
+      var item = $scope.compwnents;
+
+      item.$save(theIndex).then(function(ref){
+        ref.key() === item[theIndex].$id;
+        $scope.editCompwnents = "";
+      })
+
     }
 
 
@@ -135,7 +169,8 @@ var app = angular.module("compwnentApp", ['firebase', 'ngRoute', 'filters']);
               					compPic: $scope.compPic, 
               					compPaid: $scope.compPaid, 
               					compPrice: $scope.compPrice,
-                        compHeadingColor: $scope.compHeadingColor
+                        compHeadingColor: $scope.compHeadingColor,
+                        upVotes: 0
               });
 
 				//Reset compwnent
