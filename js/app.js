@@ -289,3 +289,11 @@ var app = angular.module("compwnentApp", ['firebase', 'ngRoute', 'filters']);
 
 
 	}]);
+
+$('#example').popover(options)
+
+
+
+
+
+
