@@ -1,0 +1,14 @@
+
+footer p {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%;
+   background:#0c84e4;
+   color: white;
+   font-size: 14px;
+   line-height: 30px;
+   margin-bottom: 0px;
+   border-top: 3px solid #EA3F00;
+}

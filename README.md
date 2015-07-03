@@ -1,2 +1,2 @@
-# compwnent-v2
-Latest and greatest tools hand picked by developers
+# compwnent
+Hand selected list of compwnents for web developers

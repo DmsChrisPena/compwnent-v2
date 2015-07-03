@@ -1,0 +1,31 @@
+<div style="margin-bottom: 80px" class="col-lg-12">
+	<div class="col-lg-3 animated slideInUp" ng-repeat="comp in compwnents | orderBy : '-upVotes' | filter:searchCompName | filter:searchCompType">
+		<div class="panel panel-primary">
+		  <div style="background-color: {{comp.compHeadingColor}}" class="panel-heading">
+		    <h3 class="panel-title text-center">{{comp.compName}}</h3>
+		  </div>
+		  <div class="panel-body">
+		  	<div class="row">
+			  	<div style="padding-top: 5%;" class="col-lg-2">
+			  		<a href="#" ng-click="submitUpVote()"><i style="font-size: 24px; color: {{comp.compHeadingColor}}" class="fa fa-sort-asc"></i></a><br/>
+			  		<p style="margin-right: 5px">{{comp.upVotes}}</p>
+			  		<a href="#" ng-click="submitDownVote()"><i style="font-size: 24px; color: {{comp.compHeadingColor}}" class="fa fa-caret-down"></i></i>
+			  	</div>
+			  	<div class="col-lg-10">
+		  			<img style="height: 75px" class="img-responsive img-rounded center-block" ng-src="{{comp.compPic}}">
+			  	</div>
+		  	</div>
+		  	<div style="margin-top:10px" class="row text-center">
+		  		<a href="{{comp.compDemo}}" target="_blank" class="btn btn-primary btn-xs">Demo</a>
+		  		<a href="{{comp.compDocs}}" target="_blank" class="btn btn-success btn-xs">Documation</a>
+		  	</div>
+		  	<div style="margin-top:20px" class="row text-center">
+		  		<p>{{comp.compDesc | truncate:140}}</p>
+		  	</div>
+		  	<div class="row">
+		    	<img style="padding-right: 10px" class="pull-right" height="40px" ng-src="{{comp.compTypeImg}}">
+		  	</div>
+		  </div>
+		</div>
+	</div>
+</div>

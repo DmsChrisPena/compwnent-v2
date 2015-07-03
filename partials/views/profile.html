@@ -1,0 +1,43 @@
+<div style="margin-top: 30px" class="row animated flipInX">
+	<div class="col-lg-offset-4 col-lg-4">
+		<div style="margin-bottom: 120px" class="panel panel-success">
+		  <div style="background-color: {{titleColor}}" class="panel-heading">
+		    <h3 style="font-size: 24px" class="panel-title text-center">{{displayName}}</h3>
+		  </div>
+		  <div class="panel-body">
+		  	<div class="row">
+		    	<img style="height: 250px" class="img-responsive img-rounded center-block" src="{{avatar}}">
+		  	</div>
+		  	<div class="row">
+		  		<p style="padding-top:10px" class="text-center">Username: {{username}}</p>
+		  	</div>
+		  	<div ng-show="email" class="row">
+		  		<p class="text-center">Email: {{email}}</p>
+		  	</div>
+		  	<div ng-show="description" class="row">
+		  		<p class="text-center">Description: {{description}}</p>
+		  	</div>
+		  	<div ng-show="location" class="row">
+		  		<p class="text-center">Location: {{location}}</p>
+		  	</div>
+		  	<div class="row">
+		  		<div class="col-lg-offset-3 col-lg-6">
+		  			<p class="text-center"><a href="{{htmlurl}}" target="_blank" class="btn btn-social btn-block btn-md btn-{{accountType}}"><i class="fa fa-{{accountType}}"></i> &nbsp;My {{accountType}}</a></p>	
+		  		</div>
+		  	</div>
+		  	<div ng-show="tweetName" style="background-color: {{titleColor}}; margin-top: 10px; color: white; border-radius: 6px" class="well well-lg">
+		  	<p>Latest Tweet</p>
+		  	<hr>
+		  	  <h5 style="color:white;">{{tweetName}}: &nbsp; {{tweetContent}}</h5> 
+		  	</div>
+		  	<hr>
+		    <div class="row">
+		    	<div class="pull-right">
+		    		<img style="padding-right: 10px" class="pull-right" height="40px" src="img/angularjs.png">
+		    	</div>
+		    </div>
+		  </div>
+
+		</div>
+	</div>
+</div>
